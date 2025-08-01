@@ -7,12 +7,25 @@ services:
       - static_volume:/app/staticfiles
     env_file:
       - .env
+
   code_server:
     image: codercom/code-server:latest
+    container_name: code_server
+    working_dir: /home/coder/project
     environment:
       - PASSWORD=changeme
+      - CODE_SERVER_PROXY_DOMAIN=https://refactored-bassoon-xpq4qwjr7442p6qp-80.app.github.dev
     volumes:
       - ./workspace:/home/coder/project
+    command: >
+      code-server
+      --auth password
+      --host 0.0.0.0
+      --port 8080
+      --disable-telemetry
+      --proxy-domain https://refactored-bassoon-xpq4qwjr7442p6qp-80.app.github.dev
+      /home/coder/project
+
   nginx:
     image: nginx:alpine
     ports:

@@ -8,6 +8,6 @@ Proyecto base de Django preparado para producción usando Docker Compose y Nginx
 docker compose up --build
 ```
 
-El acceso a `http://localhost` mostrará la aplicación Django. Solo los usuarios
-registrados podrán acceder a la ruta `/code-server/`, que muestra una instancia
-de [code-server](https://github.com/coder/code-server) dentro de un iframe.
+El acceso a `http://localhost` mostrará la aplicación Django.
+Tras iniciar sesión, la página de inicio incluye un iframe con
+una instancia de [code-server](https://github.com/coder/code-server).

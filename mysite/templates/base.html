@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django App</title>
+</head>
+<body>
+<nav>
+    {% if user.is_authenticated %}
+        <a href="/logout/">Logout</a>
+    {% else %}
+        <a href="/login/">Login</a>
+        <a href="/register/">Register</a>
+    {% endif %}
+    <a href="/">Home</a>
+    <a href="/code/">Code Server</a>
+</nav>
+<hr>
+{% block content %}{% endblock %}
+</body>
+</html>
